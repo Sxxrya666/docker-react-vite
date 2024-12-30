@@ -1,0 +1,8 @@
+sudo: required # anytime docker runs , super user perms are must
+services: 
+    - docker # means it will install copy of docker in the container 
+before_install: 
+    - docker build -f Dockerfile.dev -t soorya/docker-react-vite:latest . 
+
+script: 
+    - docker run -e CI=true soorya/docker-react-vite bun test

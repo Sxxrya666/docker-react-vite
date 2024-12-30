@@ -1,4 +1,4 @@
-FROM node:alpine AS stageOne 
+FROM oven/bun:latest AS build 
 
 WORKDIR /usr/src/app
 
@@ -12,4 +12,6 @@ CMD [ "bun",  "run" ,"build" ]
 
 FROM nginx:1.27.3-alpine
 
-COPY --from=stageOne /dist /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
+
+RUN nginx 
