@@ -1,0 +1,14 @@
+services:
+    simple-frontend: 
+        ports: 
+        - "3000:5173"
+        build: 
+            context: .
+            dockerfile: Dockerfile.dev
+        restart: on-failure:3
+        volumes:
+            - ./:/usr/src/app 
+            - node_modules:/usr/src/app/node_modules
+
+volumes:
+    node_modules: 
