@@ -11,7 +11,6 @@ COPY . .
 CMD [ "npm",  "run" ,"build" ]
 
 
-
 FROM nginx:1.27.3-alpine
 
 COPY --from=stageOne /build /usr/share/nginx/html
