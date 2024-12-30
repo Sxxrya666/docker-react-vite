@@ -12,4 +12,4 @@ CMD [ "bun",  "run" ,"build" ]
 
 FROM nginx:1.27.3-alpine
 
-COPY --from=stageOne /build /usr/share/nginx/html
+COPY --from=stageOne /dist /usr/share/nginx/html
