@@ -4,12 +4,11 @@ WORKDIR /usr/src/app
 
 COPY package*.json .
 
-RUN npm i 
+RUN bun i 
 
 COPY . .
 
-CMD [ "npm",  "run" ,"build" ]
-
+CMD [ "bun",  "run" ,"build" ]
 
 FROM nginx:1.27.3-alpine
 
